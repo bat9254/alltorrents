@@ -6,9 +6,13 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      text-align: center;
       margin: 20px;
       transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
+      display: flex;
+      flex-direction: column; /* Align items vertically */
+      align-items: center;  /* Center items horizontally */
+      justify-content: center; /* Center items vertically */
+      min-height: 100vh; /* Ensure body takes full viewport height */
     }
 
     /* Light mode styles (default) */
@@ -25,7 +29,15 @@
 
     h1 {
       font-size: 2em;
-      margin-bottom: 20px;
+      margin-bottom: 10px; /* Reduced margin */
+    }
+
+    /* Description styles */
+    .description {
+      text-align: center;
+      margin-bottom: 20px; /* Added margin */
+      font-size: 0.9em;
+      line-height: 1.4;
     }
 
     input[type="text"] {
@@ -87,25 +99,32 @@
         font-size: 0.8em;
       }
     }
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
   </style>
 </head>
 <body class="light-mode">
 
   <h1>AllTorrents</h1>
 
+  <p class="description">
+    Just enter your search query and click the button for the site you want to search.
+  </p>
+
   <input type="text" id="searchInput" placeholder="Enter search term...">
 
   <div>
-        </button>
     <button onclick="searchTorrent('torrentgalaxy')">
       <img src="https://www.google.com/s2/favicons?domain=torrentgalaxy.to" alt="TG">TorrentGalaxy
     </button>
-        </button>
     <button onclick="searchTorrent('1337x')">
       <img src="https://www.google.com/s2/favicons?domain=1337x.to" alt="1337x">1337x
     </button>
-        </button>
-     <button onclick="searchTorrent('ext')">
+    <button onclick="searchTorrent('ext')">
       <img src="https://www.google.com/s2/favicons?domain=ext.to" alt="EXT">EXT
     </button>       
     <button onclick="searchTorrent('yts')">
@@ -113,10 +132,13 @@
     </button>
     <button onclick="searchTorrent('thepiratebay')">
       <img src="https://www.google.com/s2/favicons?domain=thepiratebay.org" alt="TPB">ThePirateBay
+    </button>
     <button onclick="searchTorrent('limetorrents')">
       <img src="https://www.google.com/s2/favicons?domain=limetorrents.lol" alt="Lime">LimeTorrents
+    </button>
     <button onclick="searchTorrent('rutracker')">
       <img src="https://www.google.com/s2/favicons?domain=rutracker.org" alt="Ru">RuTracker
+    </button>
   </div>
 
   <script>
@@ -174,4 +196,4 @@
   </script>
 
 </body>
-    </html>
+</html>
