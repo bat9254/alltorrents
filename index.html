@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Torrent Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
+    }
+
+    /* Light mode styles (default) */
+    body.light-mode {
+      background-color: #fff;
+      color: #222;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212; /* Dark background */
+      color: #eee; /* Light text */
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      max-width: 400px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 1em;
+      transition: border-color 0.3s ease; /* Smooth transition for border color */
+    }
+
+    /* Input field styles in dark mode */
+    .dark-mode input[type="text"] {
+      border-color: #555;
+      background-color: #222;
+      color: #eee;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      background-color: transparent;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Button styles in dark mode */
+    .dark-mode button {
+      color: #eee;
+      border-color: #555;
+    }
+
+    button:hover {
+      background-color: #eee;
+    }
+
+    /* Button hover styles in dark mode */
+    .dark-mode button:hover {
+      background-color: #333;
+    }
+
+    button img {
+      height: 16px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 500px) {
+      button {
+        font-size: 0.8em;
+      }
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <h1>Torrent Search</h1>
+
+  <input type="text" id="searchInput" placeholder="Enter search term...">
+
+  <div>
+    <button onclick="searchTorrent('piratebay')">
+      <img src="https://www.google.com/s2/favicons?domain=tpbproxypirate.com" alt="TPB">ThePirateBay
+    </button>
+    <button onclick="searchTorrent('1337x')">
+      <img src="https://www.google.com/s2/favicons?domain=1377x.to" alt="1337x">1337x
+    </button>
+    <button onclick="searchTorrent('limetorrents')">
+      <img src="https://www.google.com/s2/favicons?domain=limetorrents.lol" alt="Lime">LimeTorrents
+    </button>
+    <button onclick="searchTorrent('yts')">
+      <img src="https://www.google.com/s2/favicons?domain=yts.mx" alt="YTS">YTS
+    </button>
+    <button onclick="searchTorrent('ext')">
+      <img src="https://www.google.com/s2/favicons?domain=ext.to" alt="EXT">EXT
+    </button>
+    <button onclick="searchTorrent('rutracker')">
+      <img src="https://www.google.com/s2/favicons?domain=rutracker.org" alt="Ru">RuTracker
+    </button>
+    <button onclick="searchTorrent('torrentgalaxy')">
+      <img src="https://www.google.com/s2/favicons?domain=torrentgalaxy.to" alt="TG">TorrentGalaxy
+    </button>
+  </div>
+
+  <script>
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      const body = document.body;
+      if (body.classList.contains("light-mode")) {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+      } else {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+      }
+    }
+
+    // Call toggleDarkMode() on page load to set initial mode
+    // You can also use a button or other event to trigger the toggle
+    toggleDarkMode(); 
+
+    // JavaScript for searching (same as before)
+    function searchTorrent(site) {
+      const searchText = document.getElementById("searchInput").value;
+      let url = "";
+
+      switch (site) {
+        case 'thepiratebay':
+          url = `https://www.thepiratebay.org/search.php?q=${searchText}`;
+          break;
+        case '1337x':
+          url = `https://www.1337x.to/search/${searchText}/1/`;
+          break;
+        case 'limetorrents':
+          url = `https://www.limetorrents.lol/search/all/${searchText}/`;
+          break;
+        case 'yts':
+          url = `https://yts.mx/browse-movies/${searchText}`;
+          break;
+        case 'ext':
+          url = `https://ext.to/search/?q=${searchText}`;
+          break;
+        case 'rutracker':
+          url = `https://rutracker.org/forum/tracker.php?nm=${searchText}`;
+          break;
+        case 'torrentgalaxy':
+          url = `https://torrentgalaxy.to/torrents.php?search=${searchText}&lang=0&nox=2&sort=seeders&order=desc`;
+          break;
+      }
+
+      if (searchText) {
+        window.open(url, '_blank');
+      } else {
+        alert("Please enter a search term.");
+      }
+    }
+  </script>
+
+</body>
+</html>
